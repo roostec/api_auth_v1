@@ -12,6 +12,8 @@ const accountModel = require("../model/accountModel");
 class AccountController {
   static async create(req, res, next) {
     try {
+      const user_agent = req.headers["user-agent"];
+      console.log(user_agent);
       const { first_name, last_name, email, password } = req.body;
       existsOrError(first_name, "First name is required");
       existsOrError(last_name, "Last name is required");
